@@ -1,0 +1,668 @@
+/* =========================================
+   HOTEL VERMELHO — Dashboard Styles
+   ========================================= */
+
+/* --- Variáveis de tema --- */
+:root {
+  --bg: #F2F2F0;
+  --surface: #ffffff;
+  --sidebar-bg: #1a1a1a;
+  --sidebar-text: #a0a0a0;
+  --sidebar-section: #555555;
+  --sidebar-divider: #2a2a2a;
+  --accent: #cc2222;
+  --accent-hover: #aa1a1a;
+  --text: #111111;
+  --text-muted: #888888;
+  --border: #e5e5e3;
+  --dark-card: #1a1a1a;
+  --green: #16a34a;
+  --red: #cc2222;
+  --yellow: #d97706;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --font: "Inter", "Helvetica Neue", sans-serif;
+}
+
+/* --- Reset base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font);
+}
+
+/* =========================================
+   LAYOUT RAIZ
+   ========================================= */
+
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  font-family: var(--font);
+  font-size: 14px;
+  background: var(--bg);
+}
+
+/* =========================================
+   SIDEBAR
+   ========================================= */
+
+.sidebar {
+  width: 200px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 0;
+  flex-shrink: 0;
+}
+
+.sidebar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px 28px;
+}
+
+.sidebar__logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.sidebar__logo-name {
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.sidebar__logo-sub {
+  font-size: 11px;
+  color: var(--sidebar-text);
+  margin-top: 1px;
+}
+
+/* Nav groups */
+.sidebar__group {
+  margin-bottom: 24px;
+}
+
+.sidebar__group-label {
+  padding: 0 20px 8px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sidebar-section);
+}
+
+.sidebar__nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 20px;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  color: var(--sidebar-text);
+  font-size: 13px;
+  text-align: left;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.sidebar__nav-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: #ddd;
+}
+
+.sidebar__nav-btn--active {
+  background: rgba(255, 255, 255, 0.08);
+  border-left-color: var(--accent);
+  color: #fff;
+}
+
+.sidebar__nav-icon {
+  font-size: 14px;
+}
+
+/* Footer */
+.sidebar__footer {
+  margin-top: auto;
+  padding: 16px 20px;
+  border-top: 1px solid var(--sidebar-divider);
+}
+
+.sidebar__footer-shift {
+  font-size: 11px;
+  color: var(--sidebar-section);
+  margin-bottom: 2px;
+}
+
+.sidebar__footer-user {
+  font-size: 12px;
+  color: #888;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+   ========================================= */
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* --- Topbar --- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 28px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar__search {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  font-family: var(--font);
+  transition: border-color 0.15s;
+}
+
+.topbar__search:focus {
+  border-color: var(--accent);
+}
+
+.topbar__bell {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.topbar__avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* --- Main content area --- */
+.main-content {
+  flex: 1;
+  padding: 28px 28px 40px;
+  overflow-y: auto;
+}
+
+/* =========================================
+   GREETING
+   ========================================= */
+
+.greeting {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.greeting__shift {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.greeting__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.1;
+}
+
+.greeting__sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.greeting__actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.btn--outline {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 500;
+  transition: background 0.15s;
+}
+
+.btn--outline:hover {
+  background: var(--bg);
+}
+
+.btn--primary {
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.btn--primary:hover {
+  background: var(--accent-hover);
+}
+
+/* =========================================
+   KPI CARDS
+   ========================================= */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.kpi-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+}
+
+.kpi-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.kpi-card__label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.kpi-card__icon {
+  font-size: 16px;
+}
+
+.kpi-card__value {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.kpi-card__sub {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.kpi-card__sub--up    { color: var(--green); }
+.kpi-card__sub--down  { color: var(--red); }
+.kpi-card__sub--alert { color: var(--accent); }
+.kpi-card__sub--muted { color: var(--text-muted); }
+
+/* =========================================
+   SEÇÃO CENTRAL (check-ins + gráfico)
+   ========================================= */
+
+.mid-section {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+/* --- Card genérico --- */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.card__title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.card__subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.card__link {
+  background: transparent;
+  border: none;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.card__link:hover {
+  text-decoration: underline;
+}
+
+/* --- Check-in rows --- */
+.checkin-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.checkin-row:last-child {
+  border-bottom: none;
+}
+
+.checkin-row__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--text);
+  flex-shrink: 0;
+}
+
+.checkin-row__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.checkin-row__name {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.checkin-row__booking {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 1px;
+}
+
+.checkin-row__time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.checkin-row__values {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.checkin-row__price {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.checkin-row__status {
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+/* =========================================
+   CARD ESCURO — Ocupação Semanal
+   ========================================= */
+
+.dark-card {
+  background: var(--dark-card);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  color: #fff;
+}
+
+.dark-card__title {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 2px;
+}
+
+.dark-card__subtitle {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Gráfico de barras */
+.week-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 100px;
+  margin-bottom: 12px;
+}
+
+.week-chart__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.week-chart__bar {
+  width: 100%;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  transition: height 0.3s ease;
+}
+
+.week-chart__bar--peak {
+  background: var(--accent);
+}
+
+.week-chart__day {
+  font-size: 10px;
+  color: #666;
+}
+
+/* Stats abaixo do gráfico */
+.week-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 16px;
+}
+
+.week-stats__label {
+  font-size: 11px;
+  color: #666;
+  margin-bottom: 2px;
+}
+
+.week-stats__value {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* =========================================
+   MAPA DE QUARTOS
+   ========================================= */
+
+.rooms-section {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid var(--border);
+}
+
+.rooms-section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.rooms-section__title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.rooms-section__subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* Legenda de status */
+.room-legend {
+  display: flex;
+  gap: 8px;
+}
+
+.room-legend__tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-weight: 500;
+}
+
+.room-legend__tag--ocupado   { background: var(--accent); color: #fff; }
+.room-legend__tag--livre     { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
+.room-legend__tag--limpeza   { background: var(--surface); color: var(--text-muted); border: 1px solid var(--border); }
+.room-legend__tag--manutencao { background: var(--dark-card); color: #fff; }
+
+/* Grid de quartos */
+.rooms-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.room-card {
+  border-radius: var(--radius-md);
+  padding: 14px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.room-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.room-card--ocupado   { background: #fff5f5; border-color: #fecaca; }
+.room-card--livre     { background: var(--surface); }
+.room-card--limpeza   { background: var(--surface); }
+.room-card--manutencao { background: var(--dark-card); border-color: var(--dark-card); }
+
+.room-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.room-card__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.room-card__dot--ocupado   { background: var(--accent); }
+.room-card__dot--livre     { background: var(--border); }
+.room-card__dot--limpeza   { background: var(--border); }
+.room-card__dot--manutencao { background: #555; }
+
+.room-card__num {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.room-card__guest {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.room-card__checkout {
+  font-size: 11px;
+}
+
+/* Cores de texto por status */
+.room-card--ocupado   .room-card__num,
+.room-card--ocupado   .room-card__guest   { color: var(--text); }
+.room-card--ocupado   .room-card__checkout { color: var(--text-muted); }
+
+.room-card--livre     .room-card__num,
+.room-card--limpeza   .room-card__num     { color: var(--text); }
+.room-card--livre     .room-card__guest,
+.room-card--limpeza   .room-card__guest   { color: var(--text-muted); }
+.room-card--livre     .room-card__checkout,
+.room-card--limpeza   .room-card__checkout { color: var(--text-muted); }
+
+.room-card--manutencao .room-card__num     { color: #fff; }
+.room-card--manutencao .room-card__guest   { color: #999; }
+.room-card--manutencao .room-card__checkout { color: #666; }
